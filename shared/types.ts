@@ -26,6 +26,11 @@ export interface Card {
   suit: Suit;
 }
 
+export interface PyramidCard extends Card {
+  row: number;
+  col: number;
+}
+
 export interface Player {
   id: string;
   name: string;
@@ -78,7 +83,8 @@ export interface MatchState {
   deck: Card[];
   discard: Card[];
   phase: Phase;
-  pyramid?: Pyramid;
+  pyramid?: PyramidCard[][];
+  currentTurn: number;
   bus?: BusState;
   rngSeed: string;
 }
